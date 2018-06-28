@@ -1,27 +1,15 @@
+/** 
+  * Name: Neel Verma
+  * Current File: decoder.h
+  * Description: Decodes a file.
+  */
+
 #ifndef _DECODER_H_
 #define _DECODER_H_
 
+#include "node.h"
 #include <string>
 #include <fstream>
-
-struct Node {
-  char data;
-  unsigned frequency;
-  Node* left;
-  Node* right;
-
-  Node(const char& data, const unsigned& frequency) {
-    left = right = NULL;
-    this->data = data;
-    this->frequency = frequency;
-  }
-};
-
-struct Compare {
-  bool operator()(const Node* left, const Node* right) {
-    return left->frequency > right->frequency;
-  }
-};
 
 class Decoder {
  public:
@@ -35,7 +23,7 @@ class Decoder {
   std::ifstream in_file_;
   void FillFrequencies();
   Node* BuildTree();
-  std::ofstream CreateOutFile();
+  void CreateOutFile(std::ofstream& out_file);
 };
 
 #endif

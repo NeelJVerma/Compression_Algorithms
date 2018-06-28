@@ -1,3 +1,10 @@
+/** 
+  * Name: Neel Verma
+  * Current File: cmdlineparser.h
+  * Description: Parses the command line. Used for all compression algorithms
+  * that have been and will be implemented.
+  */
+
 #ifndef _CMD_LINE_PARSER_H_
 #define _CMD_LINE_PARSER_H_
 
