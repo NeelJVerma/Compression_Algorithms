@@ -131,7 +131,7 @@ void Encoder::CreateOutFile(std::ofstream& out_file) {
   std::regex e(".*\\/(.*)\\..*$");
   std::smatch sm;
   std::regex_match(filename_.cbegin(), filename_.cend(), sm, e);
-  std::string out_filename = "Encoded/" + std::string(sm[1]) + "-c.huf";
+  std::string out_filename = "../Encoded/" + std::string(sm[1]) + "-c.huf";
   out_file.open(out_filename);
 
   if (!out_file) {

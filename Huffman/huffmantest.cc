@@ -4,9 +4,9 @@
   * Description: Tests the huffman codec.
   */
 
-#include "Huffman/encoder.h"
-#include "Huffman/decoder.h"
-#include "cmdlineparser.h"
+#include "encoder.h"
+#include "decoder.h"
+#include "../cmdlineparser.h"
 
 int main(int argc, char* argv[]) {
   CmdLineParser* parser = new CmdLineParser(argc, argv);
