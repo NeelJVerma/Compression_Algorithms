@@ -1,3 +1,9 @@
+/** 
+  * Name: Neel Verma
+  * Current File: lzwtest.cc
+  * Description: Tests the LZW codec.
+  */
+
 #include "encoder.h"
 #include "decoder.h"
 #include "../cmdlineparser.h"

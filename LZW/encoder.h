@@ -1,3 +1,9 @@
+/** 
+  * Name: Neel Verma
+  * Current File: encoder.h
+  * Description: Encodes a file.
+  */
+
 #ifndef _ENCODER_H_
 #define _ENCODER_H_
 

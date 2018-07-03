@@ -1,3 +1,9 @@
+/** 
+  * Name: Neel Verma
+  * Current File: decoder.h
+  * Description: Decodes a file.
+  */
+
 #ifndef _DECODER_H_
 #define _DECODER_H_
 

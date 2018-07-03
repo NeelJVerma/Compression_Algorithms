@@ -1,8 +1,21 @@
+/** 
+  * Name: Neel Verma
+  * Current File: encoder.cc
+  * Description: Implements the encoder.
+  */
+
 #include "encoder.h"
 #include <regex>
 #include <iostream>
 
 const unsigned kMaxChars = 256;
+
+/**
+  * Description: Constructor for the Encoder class.
+  * Parameters: const std::string& filename --> The filename that was passed
+  *             back from the command line parser.
+  * Returns: Nothing.
+  */
 
 Encoder::Encoder(const std::string& filename) {
   in_file_.open(filename);
@@ -16,9 +29,22 @@ Encoder::Encoder(const std::string& filename) {
   filename_ = filename;
 }
 
+
+/**
+  * Description: Destructor for the Encoder class.
+  * Parameters: None.
+  * Returns: Nothing.
+  */
+
 Encoder::~Encoder() {
   in_file_.close();
 }
+
+/**
+  * Description: Creates the output file (decompressed text file).
+  * Parameters: std::ofstream& out_file --> The file to be created/opened.
+  * Returns: Nothing.
+  */
 
 void Encoder::CreateOutFile(std::ofstream& out_file) {
   std::regex e(".*\\/(.*)\\..*$");
@@ -35,11 +61,26 @@ void Encoder::CreateOutFile(std::ofstream& out_file) {
   }
 }
 
+/**
+  * Description: Fills the symbol table with one byte codewords to codes.
+  * Parameters: None.
+  * Returns: Nothing.
+  */
+
 void Encoder::FillSymbolTable() {
   for (int i = 0; i < kMaxChars; i++) {
     symbol_table_[std::string(1, char(i))] = i;
   }
 }
+
+/**
+  * Description: Encodes the file. First, fill the symbol table with the one
+  * byte codewords. Then, create/open the output file and one after another,
+  * write the appropriate codes to the binary file. Relies on the fact that
+  * text files have low entropy.
+  * Parameters: None.
+  * Returns: Nothing.
+  */
 
 void Encoder::Encode() {
   FillSymbolTable();

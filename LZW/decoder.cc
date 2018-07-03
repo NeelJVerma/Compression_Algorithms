@@ -1,8 +1,21 @@
+/** 
+  * Name: Neel Verma
+  * Current File: decoder.cc
+  * Description: Implements the decoder.
+  */
+
 #include "decoder.h"
 #include <iostream>
 #include <regex>
 
 const unsigned kMaxChars = 256;
+
+/**
+  * Description: Constructor for the Decoder class.
+  * Parameters: const std::string& filename --> The filename that was passed
+  *             back from the command line parser.
+  * Returns: Nothing.
+  */
 
 Decoder::Decoder(const std::string& filename) {
   in_file_.open(filename);
@@ -16,9 +29,21 @@ Decoder::Decoder(const std::string& filename) {
   filename_ = filename;
 }
 
+/**
+  * Description: Destructor for the Encoder class.
+  * Parameters: None.
+  * Returns: Nothing.
+  */
+
 Decoder::~Decoder() {
   in_file_.close();
 }
+
+/**
+  * Description: Creates the output file (decompressed text file).
+  * Parameters: std::ofstream& out_file --> The file to be created/opened.
+  * Returns: Nothing.
+  */
 
 void Decoder::CreateOutFile(std::ofstream& out_file) {
   std::regex e(".*\\/(.*)\\..*$");
@@ -37,11 +62,26 @@ void Decoder::CreateOutFile(std::ofstream& out_file) {
   }
 }
 
+/**
+  * Description: Fills the symbol table with the codes to the one byte
+  * codewords.
+  * Parameters: None.
+  * Returns: Nothing.
+  */
+
 void Decoder::FillSymbolTable() {
   for (int i = 0; i < kMaxChars; i++) {
     symbol_table_[i] = std::string(1, char(i));
   }
 }
+
+/**
+  * Description: Decodes the compressed binary file. First, fill the symbol
+  * table with the one byte codes, then create/open the output file. Next,
+  * decode the file in the same way that it was encoded, but in reverse.
+  * Parameters: None.
+  * Returns: Nothing.
+  */
 
 void Decoder::Decode() {
   FillSymbolTable();
