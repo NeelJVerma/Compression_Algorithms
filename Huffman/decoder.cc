@@ -96,7 +96,7 @@ void Decoder::CreateOutFile(std::ofstream& out_file) {
   std::regex_match(filename_.cbegin(), filename_.cend(), sm, e);
   std::string string_sm = std::string(sm[1]);
   string_sm = string_sm.substr(0, string_sm.length() - 2);
-  std::string out_filename = "../Decoded/" + string_sm + "-d.txt";
+  std::string out_filename = "../Decoded/" + string_sm + "-huf-d.txt";
   out_file.open(out_filename);
 
   if (!out_file) {
